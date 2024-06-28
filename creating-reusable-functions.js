@@ -78,3 +78,53 @@ console.log(states);
 
 
 // Part 2: Thinking Methodically 
+// When functions are built into objects, like Arrays, they are referred to as “methods” of those objects. Many methods, including Array methods, require “callback functions” to determine their behavior.
+// For the tasks below, use the following data to test your work:
+// [{ id: "42", name: "Bruce", occupation: "Knight", age: "41" },
+//  { id: "48", name: "Barry", occupation: "Runner", age: "25" },
+//  { id: "57", name: "Bob", occupation: "Fry Cook", age: "19" },
+//  { id: "63", name: "Blaine", occupation: "Quiz Master", age: "58" },
+//  { id: "7", name: "Bilbo", occupation: "None", age: "111" }]
+
+// Use callback functions alongside Array methods to accomplish the following:
+// Sort the array by age.
+// Filter the array to remove entries with an age greater than 50.
+// Map the array to change the “occupation” key to “job” and increment every age by 1.
+// Use the reduce method to calculate the sum of the ages.
+// Then use the result to calculate the average age.
+
+let csvData = 'ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctors Assistant,26'
+
+//Declare a variable that stores the number of columns in each row of data within the CSV.
+let rows = csvData.split('\n').map(row => row.split(','));
+
+//Instead of hard-coding four columns per row, expand your code to accept any number of columns. 
+// This should be calculated dynamically based on the first row of data.
+let columnCount = rows[0].length;
+console.log("Number of columns:", columnCount)
+
+//Store your results in a two-dimensional array.
+let resultArray = rows.map(row => {
+    if (row.length !== columnCount) {
+        throw new Error('Row length does not match')
+    }
+    return row;
+});
+
+//Cache this two-dimensional array in a variable for later use.
+let cachedArray = resultArray;
+console.log('Two-Dimensional Array:', cachedArray);
+
+let data = [
+    ["ID", "Name", "Occupation", "Age"],
+    ["42", "Bruce", "Knight", "41"],
+    ["57", "Bob", "Fry Cook", "19"],
+    ["63", "Blaine", "Quiz Master", "58"],
+    ["98", "Bill", "Doctor's Assistant", "26"]
+];
+
+// Sort the array by age.
+
+const age = [41, 25, 19, 58, 111]
+age.sort();
+console.log(age);
